@@ -35,6 +35,35 @@ const CalendarComponent = ({ initialEvents }) => {
     setEvents(events.filter((event) => event.id !== eventId));
   };
 
+  // Function to auto-generate random events
+  const handleAutoGenerateEvents = () => {
+    const generatedEvents = [
+      {
+        id: Date.now(),
+        title: 'Project Meeting',
+        start: new Date(moment().add(1, 'days').set({ hour: 10, minute: 0 })),
+        end: new Date(moment().add(1, 'days').set({ hour: 11, minute: 0 })),
+        location: 'Conference Room A',
+      },
+      {
+        id: Date.now() + 1,
+        title: 'Lunch with Client',
+        start: new Date(moment().add(2, 'days').set({ hour: 12, minute: 0 })),
+        end: new Date(moment().add(2, 'days').set({ hour: 13, minute: 0 })),
+        location: 'Downtown Cafe',
+      },
+      {
+        id: Date.now() + 2,
+        title: 'Team Building Workshop',
+        start: new Date(moment().add(3, 'days').set({ hour: 9, minute: 0 })),
+        end: new Date(moment().add(3, 'days').set({ hour: 17, minute: 0 })),
+        location: 'Office Auditorium',
+      },
+    ];
+    
+    setEvents([...events, ...generatedEvents]);
+  };
+
   const EventComponent = ({ event }) => (
     <div style={{
       display: 'flex',
@@ -178,6 +207,22 @@ const CalendarComponent = ({ initialEvents }) => {
           }}
         >
           Add Event
+        </button>
+        <button
+          type="button"
+          onClick={handleAutoGenerateEvents}
+          style={{
+            padding: '10px',
+            borderRadius: '5px',
+            border: 'none',
+            background: '#1976D2', // Blue for auto-generate button
+            color: '#FFFFFF',
+            fontSize: '14px',
+            cursor: 'pointer',
+            marginTop: '10px',
+          }}
+        >
+          Auto-Generate Events
         </button>
       </form>
       <Calendar

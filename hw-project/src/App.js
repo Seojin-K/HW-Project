@@ -17,9 +17,9 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <h1>Fresh Start</h1>
-      </header> */}
+      { /*<header className="App-header">
+        <h1>Title</h1>
+  </header> */}
       <main>
         <CalendarComponent events={events} />
       </main>
