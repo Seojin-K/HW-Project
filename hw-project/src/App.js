@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import CalendarComponent from './CalendarComponent';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Example events
+    const exampleEvents = [
+      {
+        // start: new Date(),
+        // end: new Date(new Date().setHours(new Date().getHours() + 1)),
+        // title: 'Hello World',
+      },
+    ];
+    setEvents(exampleEvents);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Fresh Start</h1>
       </header>
+      <main>
+        <CalendarComponent events={events} />
+      </main>
     </div>
   );
-}
+};
 
 export default App;
