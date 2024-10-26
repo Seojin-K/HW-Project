@@ -8,7 +8,6 @@ function Home() {
         <div className="home-cont">
             <Container>
                 <header className="App-header">
-                    <h1 class="name">Fresh Start</h1>
                     <main className="main-content">
                         <MainContent />
                     </main>

@@ -4,8 +4,8 @@ import { Container } from 'react-bootstrap';
 function Calendar() {
   return (
     <Container>
-      <h1>About Page</h1>
-      <p>This is the About page, styled using Bootstrap's container component.</p>
+      <h1>Your Calendar</h1>
+      <p>Placeholder for calendar and stuff</p>
     </Container>
   );
 }

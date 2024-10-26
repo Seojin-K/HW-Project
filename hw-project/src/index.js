@@ -1,18 +1,86 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css';
+import { createRef } from 'react'
+import { createRoot } from 'react-dom/client'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  NavLink,
+  useLocation,
+  useOutlet,
+} from 'react-router-dom'
+import { CSSTransition, SwitchTransition } from 'react-transition-group'
+import { Container, Navbar, Nav } from 'react-bootstrap'
+import Home from './pages/Home'
+import Calendar from './pages/calendar'
+import Features from './pages/features'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const routes = [
+  { path: '/', name: 'Home', element: <Home />, nodeRef: createRef() },
+  { path: '/calendar', name: 'Calendar', element: <Calendar />, nodeRef: createRef() },
+  {
+    path: '/features',
+    name: 'Features',
+    element: <Features />,
+    nodeRef: createRef(),
+  },
+]
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Example />,
+    children: routes.map((route) => ({
+      index: route.path === '/',
+      path: route.path === '/' ? undefined : route.path,
+      element: route.element,
+    })),
+  },
+])
+
+function Example() {
+  const location = useLocation()
+  const currentOutlet = useOutlet()
+  const { nodeRef } =
+    routes.find((route) => route.path === location.pathname) ?? {}
+  return (
+    <>
+      <Navbar bg="light">
+        <Nav className="mx-auto">
+          {routes.map((route) => (
+            <Nav.Link
+              key={route.path}
+              as={NavLink}
+              to={route.path}
+              className={({ isActive }) => (isActive ? 'active' : undefined)}
+              end
+            >
+              {route.name}
+            </Nav.Link>
+          ))}
+        </Nav>
+      </Navbar>
+      <Container className="container">
+        <SwitchTransition>
+          <CSSTransition
+            key={location.pathname}
+            nodeRef={nodeRef}
+            timeout={300}
+            classNames="page"
+            unmountOnExit
+          >
+            {(state) => (
+              <div ref={nodeRef} className="page">
+                {currentOutlet}
+              </div>
+            )}
+          </CSSTransition>
+        </SwitchTransition>
+      </Container>
+    </>
+  )
+}
+
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(<RouterProvider router={router} />)
