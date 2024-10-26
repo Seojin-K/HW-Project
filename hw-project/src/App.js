@@ -9,9 +9,7 @@ const App = () => {
     // Example events
     const exampleEvents = [
       {
-        // start: new Date(),
-        // end: new Date(new Date().setHours(new Date().getHours() + 1)),
-        // title: 'Hello World',
+
       },
     ];
     setEvents(exampleEvents);
@@ -19,9 +17,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <h1>Fresh Start</h1>
-      </header>
+      </header> */}
       <main>
         <CalendarComponent events={events} />
       </main>
