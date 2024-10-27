@@ -5,7 +5,7 @@ function MainContent() {
   return (
     <Container>
       {/* Bootstrap Carousel */}
-      <Carousel className="my-4" data-bs-theme='light'>
+      <Carousel className="my-4" data-bs-theme='dark'>
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100"
@@ -13,7 +13,7 @@ function MainContent() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Tired of the same boring days?</h3>
+            <h3>Tired of the same reptitive days?</h3>
             <p></p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -44,6 +44,7 @@ function MainContent() {
       </Carousel>
       </Container>
       
+
   );
 }
 

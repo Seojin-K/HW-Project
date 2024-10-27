@@ -43,16 +43,19 @@ function Features() {
       <div ref={feature1Ref} className={`feature-section ${isVisible1 ? 'visible' : ''}`}>
         <h2>Smart Scheduling</h2>
         <p>Automate scheduling by letting the app suggest the best times based on your availability.</p>
+        <div className="features-image-wrap"><img src="/calendar1.jpg" alt="First" width="400" className="features-pic first" /></div>
       </div>
 
       <div ref={feature2Ref} className={`feature-section ${isVisible2 ? 'visible' : ''}`}>
         <h2>Reminders & Notifications</h2>
         <p>Get timely reminders for events and meetings to ensure you never miss an important moment.</p>
+        <div className="features-image-wrap"><img src="/calendar2.jpg" alt="Second" width="400" className="features-pic second" /></div>
       </div>
 
       <div ref={feature3Ref} className={`feature-section ${isVisible3 ? 'visible' : ''}`}>
         <h2>Customizable Views</h2>
         <p>Switch between daily, weekly, and monthly views, with color-coded events for easy tracking.</p>
+        <div className="features-image-wrap"><img src="/calendar3.png" alt="Third" width="400" className="features-pic third" /></div>
       </div>
     </div>
   );

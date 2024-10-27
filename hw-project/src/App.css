@@ -1,51 +1,223 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin: none;
-  background-color: #2c3240;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-.nav {
-  margin-left: 50px;
-  display: flex;
-}
-
-.App-header {
-  background-color: #2c3240;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+body {
+  background-color: rgb(128, 116, 124);
+  color: black; /* Adjust text color for readability */
   margin: 0;
-  font-size: calc(10px + 2vmin);
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(128, 116, 124);
+}
+
+.start-here {
+  margin-left: auto;
+  margin-right: 5%;
+}
+
+.start-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: rgb(128, 116, 124);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #e0e0e0;
+  color: rgb(128, 116, 124);
+}
+
+nav {
+  margin-top: 3%;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+nav ul li a {
+  color:  black;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333;
   color: white;
+  padding: 1rem;
+  text-align: center;
+  position: bottom;
+  width: auto;
+  bottom: 0;
+  margin-bottom: 0;
+  margin-top: auto;
+  z-index: 100;
 }
 
-.main-content {
-  flex: 1; /* This will make the main content take up all remaining space */
-  background-color: white;
+.title-head {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 100px;
+  font-weight: 50px;
+  animation: appear 1s ease forwards;
 }
 
-.home-cont {
+.subtitle-head {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 30px;
+  animation: appear 1s ease forwards;
+}
+
+.home {
+  text-align: center;
+}
+
+.fan-images {
   display: flex;
-  background-color: white;
-  color:white;
+  justify-content: center;
+  margin-right: 30%;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.fan-image {
+  /* Set your desired size */
+  height: auto;
+  position: absolute;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: fanOut 1s ease forwards;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Wrap image in a scaling container for smooth hover */
+.fan-image-wrapper {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.fan-image-wrapper:hover {
+  transform: scale(1.1) translateY(-30px) translate(-15px);
+  z-index: 1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
   }
 }
 
-html, body, #root {
-  height: 100%;
-  margin: 0;
+/* Keyframes for fan-out animation */
+@keyframes fanOut {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) translateX(0px) scale(0.5);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    /* Final scale of 1 */
+  }
+}
+
+.fan-image.first {
+  animation-delay: 0.2s;
+  width: 450px;
+  transform: rotate(-20deg) translateX(-200px);
+}
+
+.fan-image.second {
+  animation-delay: 0.4s;
+  width: 450px;
+  transform: rotate(0deg) translateX(0px); /* Center image */
+}
+
+.fan-image.third {
+  animation-delay: 0.6s;
+  width: 450px;
+  transform: rotate(20deg) translateX(200px);
+}
+
+/* Style and animate text */
+.animated-text {
+  text-align: center;
+  margin-top: 30%;
+  margin-bottom: 300px;
+  opacity: 0; /* Initial hidden state */
+}
+
+.animated-text.visible {
+  animation-delay: 0.4s;
+  animation: slideUp 1.5s ease forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* features styles */
+
+.features {
+  text-align: center;
+  margin: 20px;
+}
+
+.feature-section {
+  margin: 40px 0;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-section.visible {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.features-pic.first {
+  height: 700px;
+  border-radius: 15px 15px 15px 15px; 
+  width: auto;
+}
+
+.features-pic.second {
+  height: 580px;
+  border-radius: 15px 15px 15px 15px; 
+  width: auto;
+}
+
+.features-pic.third {
+  height: 675px;
+  border-radius: 15px 15px 15px 15px; 
+  width: auto;
+}
+
+.features-image-wrap {
+  padding: 50px;
+  background-color:#272727;
+  border-radius: 30px;
+  border-width: 5px;
 }
