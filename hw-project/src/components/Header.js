@@ -9,7 +9,11 @@ function Header() {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/Calendar">Calendar</Link></li>
-          <li><Link to="/Features">Features</Link></li>
+          <div className="start-here"><li>
+          <Link to="/Calendar" className="start-button">
+            Start Here.
+          </Link>
+          </li></div>
         </ul>
       </nav>
     </header>
