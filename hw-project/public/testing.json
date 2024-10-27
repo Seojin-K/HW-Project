@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "671d22fe15d1fe1b6de0193d",
+    "name": "Boba Team Hangout",
+    "date": "10/26/24",
+    "startTime": {
+      "$timestamp": "7430133567692210193"
+    },
+    "location": "LWSN 1142",
+    "endTime": {
+      "$timestamp": "0"
+    }
+  }
+]
