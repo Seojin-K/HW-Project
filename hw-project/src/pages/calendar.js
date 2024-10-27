@@ -3,8 +3,8 @@ import { Container } from 'react-bootstrap';
 
 function Calendar() {
   return (
-    <Container>
-      <h1>Your Calendar</h1>
+    <Container className="container bg-dark text-light">
+      <h1>YOUR CALENDAR</h1>
       <p>Placeholder for calendar and stuff</p>
     </Container>
   );

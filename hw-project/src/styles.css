@@ -4,8 +4,6 @@
   
   .page {
     position: absolute;
-    left: 15px;
-    right: 15px;
   }
   
   .page-enter {
@@ -13,6 +11,11 @@
     transform: scale(1.1);
   }
   
+  .container-fluid {
+    flex: 1;
+    background: black;
+  }
+
   .page-enter-active {
     opacity: 1;
     transform: scale(1);
